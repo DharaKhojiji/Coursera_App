@@ -1,6 +1,5 @@
 import "./App.css";
 import Menu from "./Components/Menu";
-import MenuDetails from "./Components/MenuDetails";
 import Navbar from "./Components/Navbar";
 import { DISHES } from "./Components/Shared/Dishes";
 

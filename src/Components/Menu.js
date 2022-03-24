@@ -10,49 +10,26 @@ import {
   ListGroup,
   ListGroupItem,
 } from "reactstrap";
+import DishDetailsComponents from "./DishDetailsComponents";
 
 const Menu = ({ datadish }) => {
-  const [selectedDish, setSelectedDish] = useState(null);
+  const [selectedDish, setSelectedDish] = useState({});
 
   const onDishSelect = (dish) => {
     setSelectedDish(dish);
   };
-  const renderDish = (dish) => {
-    if (dish != null)
-      return (
-        <div className="container">
-          <div className="row">
-            <div className="col-6">
-              <Card>
-                <CardImg src={dish.image} alt={dish.name} />
-                <CardBody>
-                  <CardTitle>Name - {dish.name}</CardTitle>
-                  <CardText>Category - {dish.category}</CardText>
-                  <CardText>Price - {dish.price}</CardText>
-                  <CardText>Description -{dish.description}</CardText>
-                </CardBody>
-              </Card>
-            </div>
-            <div className="col-6">
-              <Card>
-                {dish.comments.map((com) => (
-                  // console.log(com.comment,"com")
+  // const renderDish = (dish) => {
+  //   if (dish != null)
+  //     return (
 
-                  <List key={com.id}>
-                    <ListGroup>
-                      <ListGroupItem>{com.comment}</ListGroupItem>
-                    </ListGroup>
-                  </List>
-                ))}
-              </Card>
-            </div>
-          </div>
-        </div>
-      );
-    else <div></div>;
-  };
+  //     );
+  //   else <div></div>;
+  // };
 
   console.log(datadish, "come from menu");
+  console.log(typeof selectedDish, "selectedDish hii");
+  console.log("selectedDish", selectedDish);
+  console.log(Object.keys(selectedDish).length);
 
   const menu = datadish.map((dish) => {
     return (
@@ -71,7 +48,13 @@ const Menu = ({ datadish }) => {
   return (
     <div className="contaiber">
       <div className="row">{menu}</div>
-      <div className="row">{renderDish(selectedDish)}</div>
+      {/* {selectedDish.length == null ? (
+        <DishDetailsComponents singledata={selectedDish} />
+      ) : null}
+       */}
+      {Object.keys(selectedDish).length > 0 && (
+        <DishDetailsComponents singledata={selectedDish} />
+      )}
     </div>
   );
 
