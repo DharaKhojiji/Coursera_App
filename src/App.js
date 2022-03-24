@@ -1,18 +1,14 @@
 import "./App.css";
-import Menu from "./Components/Menu";
+import MainComponents from "./Components/MainComponents";
 import Navbar from "./Components/Navbar";
-import { DISHES } from "./Components/Shared/Dishes";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      {/* {DISHES.map((item) => ( */}
       <div className="container">
-        <Menu datadish={DISHES}></Menu>
+        <MainComponents></MainComponents>
       </div>
-      {/* ))} */}
-      {/* <Menu /> */}
     </div>
   );
 }
