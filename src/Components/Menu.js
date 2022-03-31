@@ -11,6 +11,10 @@ import {
   ListGroupItem,
 } from "reactstrap";
 import DishDetailsComponents from "./DishDetailsComponents";
+import Header from "./Header";
+import Footer from "./Footer";
+import Home from "./Home";
+import { Routes } from "react-router-dom";
 
 const Menu = ({ datadish }) => {
   const [selectedDish, setSelectedDish] = useState({});
@@ -46,7 +50,7 @@ const Menu = ({ datadish }) => {
   });
 
   return (
-    <div className="contaiber">
+    <div className="container">
       <div className="row">{menu}</div>
       {/* {selectedDish.length == null ? (
         <DishDetailsComponents singledata={selectedDish} />
@@ -57,16 +61,6 @@ const Menu = ({ datadish }) => {
       )}
     </div>
   );
-
-  // return (
-  //   <div className="container">
-  //     <div className="row">
-  //       {dishes.map((dish) => (
-  //         <MenuDetails key={dish.id} datas={dish}></MenuDetails>
-  //       ))}
-  //     </div>
-  //   </div>
-  // );
 };
 
 export default Menu;
