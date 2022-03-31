@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Menu from "./Components/Menu";
 import Navbar from "./Components/Navbar";
+import { DISHES } from "./Components/Shared/Dishes";
 
 function App() {
   return (
