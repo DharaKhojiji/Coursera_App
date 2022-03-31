@@ -1,44 +1,15 @@
 import React, { useState } from "react";
-import {
-  Card,
-  CardImg,
-  CardImgOverlay,
-  CardTitle,
-  CardBody,
-  CardText,
-  List,
-  ListGroup,
-  ListGroupItem,
-} from "reactstrap";
+import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
 import DishDetailsComponents from "./DishDetailsComponents";
-import Header from "./Header";
-import Footer from "./Footer";
-import Home from "./Home";
-import { Routes } from "react-router-dom";
-
+const onClickHandkler = (item) => {
+  console.log("iddish", item);
+};
 const Menu = ({ datadish }) => {
-  const [selectedDish, setSelectedDish] = useState({});
-
-  const onDishSelect = (dish) => {
-    setSelectedDish(dish);
-  };
-  // const renderDish = (dish) => {
-  //   if (dish != null)
-  //     return (
-
-  //     );
-  //   else <div></div>;
-  // };
-
-  console.log(datadish, "come from menu");
-  console.log(typeof selectedDish, "selectedDish hii");
-  console.log("selectedDish", selectedDish);
-  console.log(Object.keys(selectedDish).length);
-
+  console.log(datadish, "datadish");
   const menu = datadish.map((dish) => {
     return (
       <div key={dish.id} className="col-12 col-md-5 m-1">
-        <Card tag="li" onClick={() => onDishSelect(dish)}>
+        <Card key={dish.id} tag="li" onClick={() => onClickHandkler(dish)}>
           <CardImg width="100%" src={dish.image} alt={dish.name} />
           <CardImgOverlay>
             <CardTitle>{dish.name}</CardTitle>
@@ -56,8 +27,8 @@ const Menu = ({ datadish }) => {
         <DishDetailsComponents singledata={selectedDish} />
       ) : null}
        */}
-      {Object.keys(selectedDish).length > 0 && (
-        <DishDetailsComponents singledata={selectedDish} />
+      {Object.keys(datadish).length > 0 && (
+        <DishDetailsComponents singledata={datadish} />
       )}
     </div>
   );
